@@ -48,7 +48,7 @@ ENV PATH /opt/conda/bin:$PATH
 
 # Install NLTK
 
-RUN pip install nltk
+RUN pip install nltk==3.2.5
 WORKDIR /opt
 RUN python -m nltk.downloader perluniprops nonbreaking_prefixes
 
@@ -64,7 +64,13 @@ RUN python setup.py install
 
 RUN sudo apt install -y g++ openjdk-8-jdk autoconf
 RUN pip install konlpy jpype1
-RUN curl -fsSL https://raw.githubusercontent.com/konlpy/konlpy/master/scripts/mecab.sh | bash
+WORKDIR /tmp
+RUN wget https://raw.githubusercontent.com/konlpy/konlpy/master/scripts/mecab.sh
+RUN chmod +x mecab.sh
+RUN bash mecab.sh
+RUN ldconfig
+WORKDIR /tmp/mecab-ko-dic-2.0.1-20150920
+RUN make && make install
 
 # Install Champollion
 
@@ -80,7 +86,7 @@ RUN git clone https://github.com/facebookresearch/fasttext /opt/fasttext --depth
 WORKDIR /opt/fasttext
 RUN make
 ENV PATH /opt/fasttext:$PATH
-RUN echo "alias fasttext=/opt/fasttext/fasttext" > /etc/profile.d/fasttext.sh
+RUN echo "export PATH=/opt/fasttext:\$PATH" > /etc/profile.d/fasttext.sh
 
 # Install gensim
 
