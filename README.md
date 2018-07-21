@@ -61,3 +61,11 @@ docker cp 파일명 컨테이너명:위치
 ```
 
 예: `docker cp data.txt nlp:/root/`
+
+### 연결된 포트 번호 확인하기
+
+```
+docker port 컨테이너명 컨테이너포트번호
+```
+
+예: `docker port nlp 22`
