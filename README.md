@@ -2,13 +2,13 @@
 
 * OS: Ubuntu 16.04
 * Preinstalled libraries: PyTorch (CPU), TorchText, KoNLPy, Mecab-Ko, MUSE, Champollion, FastText, NLTK, SRILM
-* Sample code in /root
-* External library source code in /opt
+* Sample code in `/root`
+* External library source code in `/opt`
 * Dockerfile available at https://github.com/juneoh/fastcampus-pytorchnlp-advanced
 
 ## Docker Quickstart
 
-sudo 권한이 필요할 수 있습니다.
+`sudo` 권한이 필요할 수 있습니다.
 
 ### 이미지 불러오기
 
@@ -24,16 +24,16 @@ docker load -i 이미지파일
 docker run 옵션 이미지명
 ```
 
-예: `docker run -d -p 8888:8888 --name nlp pytorchnlp-advanced:v0.2.3`
+예: `docker run -d -P --name nlp pytorchnlp-advanced:v0.2.3`
 
 * `-d` 데몬 모드
-* `-p` 컨테이너 포트와 호스트 포트 연결
+* `-P` 컨테이너 포트와 호스트 포트 연결
 * `--name` 컨테이너명 지정
 
 ### 실행 중인 컨테이너 셸에 접속하기
 
 ```
-docker exec -it 컨테이너명
+docker exec -it 컨테이너명 명령어
 ```
 
 예: `docker exec -it nlp bash`
