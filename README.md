@@ -4,6 +4,7 @@
 * Preinstalled libraries: PyTorch (CPU), TorchText, KoNLPy, Mecab-Ko, MUSE, Champollion, FastText, NLTK, SRILM
 * Sample code in `/root`
 * External library source code in `/opt`
+* SSH enabled(requires port publish)
 * Dockerfile available at https://github.com/juneoh/fastcampus-pytorchnlp-advanced
 
 ## Docker Quickstart
@@ -16,7 +17,7 @@
 docker load -i 이미지파일
 ```
 
-예: `docker load -i pytorchnlp-advanced.v0.2.3.img.tar`
+예: `docker load -i pytorchnlp-advanced.v0.3.0.img.tar`
 
 ### 새 컨테이너 띄우기
 
@@ -24,7 +25,7 @@ docker load -i 이미지파일
 docker run 옵션 이미지명
 ```
 
-예: `docker run -d -P --name nlp pytorchnlp-advanced:v0.2.3`
+예: `docker run -d -P --name nlp pytorchnlp-advanced:v0.3.0`
 
 * `-d` 데몬 모드
 * `-P` 컨테이너 포트와 호스트 포트 연결
@@ -35,6 +36,9 @@ docker run 옵션 이미지명
 ```
 docker exec -it 컨테이너명 명령어
 ```
+
+* `-t` 가상 터미널 생성
+* `-i` STDOUT/STDIN 연결
 
 예: `docker exec -it nlp bash`
 
@@ -69,3 +73,9 @@ docker port 컨테이너명 컨테이너포트번호
 ```
 
 예: `docker port nlp 22`
+
+### SSH 접속하기
+
+```
+ssh root@localhost -p 포트번호 -o PasswordAuthentication=yes
+```
