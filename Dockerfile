@@ -128,6 +128,10 @@ ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 RUN service ssh restart
 
+# Final touches
+
+RUN apt install unzip
+
 # Wrap up
 
 RUN rm -rf /tmp/* /var/lib/apt/lists/*
