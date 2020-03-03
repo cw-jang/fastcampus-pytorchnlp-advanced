@@ -69,7 +69,7 @@ RUN wget https://raw.githubusercontent.com/konlpy/konlpy/master/scripts/mecab.sh
 RUN chmod +x mecab.sh
 RUN bash mecab.sh
 RUN ldconfig
-WORKDIR /tmp/mecab-ko-dic-2.0.1-20150920
+WORKDIR /tmp/mecab-ko-dic-2.1.1-20180720
 RUN make && make install
 
 # Install Champollion
