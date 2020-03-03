@@ -112,10 +112,10 @@ RUN echo "export PATH=/opt/srilm/bin/i686-m64:\$PATH" > /etc/profile.d/srilm.sh
 # Install sample codes
 
 WORKDIR /root
-RUN git clone https://github.com/kh-kim/nlp_preprocessing --depth 1
-RUN git clone https://github.com/kh-kim/OpenNLMTK --depth 1
-RUN git clone https://github.com/kh-kim/simple-nmt --depth 1
-RUN git clone https://github.com/kh-kim/subword-nmt --depth 1
+RUN git clone https://github.com/cw-jang/nlp_preprocessing --depth 1
+RUN git clone https://github.com/cw-jang/OpenNLMTK --depth 1
+RUN git clone https://github.com/cw-jang/simple-nmt --depth 1
+RUN git clone https://github.com/cw-jang/subword-nmt --depth 1
 RUN mkdir data
 
 # Prepare SSH
