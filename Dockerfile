@@ -46,6 +46,9 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-la
 RUN echo "export PATH=/opt/conda/bin:\$PATH" > /etc/profile.d/conda.sh
 ENV PATH /opt/conda/bin:$PATH
 
+# Install sklearn 
+RUN pip install sklearn
+
 # Install NLTK
 
 RUN pip install nltk==3.2.5
